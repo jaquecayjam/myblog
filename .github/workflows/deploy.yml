@@ -20,9 +20,9 @@ construir-y-lanzar:
     run: npm ci # parecido al npm install
 
   - name: Build project
-    run: npm run build      
+    run: npm run build
   
-  - name: Deploy to GibHub Pages    
+  - name: Deploy to GibHub Pages
      uses: JamesIves/github-pages-deploy-action@3.7.1
      with:
       branch: gh-pages
