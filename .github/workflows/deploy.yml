@@ -1,0 +1,29 @@
+name: construir y lanzar
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+construir-y-lanzar:
+  runs-on: ubuntu-latest #nos crea una maquina virtual
+  steps:
+  - name: Checkout code
+    uses: actions/checkout@v3
+
+  - name: Install Node.js
+    uses: actions/setup-node@v3
+    with:
+      node-version: '18'
+
+  - name: Install dependencies
+    run: npm ci # parecido al npm install
+
+  - name: Build project
+    run: npm run build      
+  
+  - name: Deploy to GibHub Pages    
+     uses: JamesIves/github-pages-deploy-action@3.7.1
+     with:
+      branch: gh-pages
+      folder: dist
