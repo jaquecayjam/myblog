@@ -21,7 +21,12 @@ jobs:
 
     - name: Build project
       run: npm run build
-  
+
+    - name: Generate 404.html
+      run: |
+        repo_name=$(git rev-parse --show-toplevel | xargs basename)
+        echo "<!DOCTYPE html><html lang="es"><head><meta http-equiv='refresh' content='0; url=https://jaquecayjam.github.io/myblog/'></head></html>" > dist/404.html
+
     - name: Deploy to GibHub Pages
       uses: JamesIves/github-pages-deploy-action@3.7.1
       with:
