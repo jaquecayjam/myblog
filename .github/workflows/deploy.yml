@@ -17,7 +17,7 @@ construir-y-lanzar:
       node-version: '18'
 
   - name: Install dependencies
-    run: npm ci # parecido al npm install
+    run: npm ci #parecido al npm install
 
   - name: Build project
     run: npm run build
